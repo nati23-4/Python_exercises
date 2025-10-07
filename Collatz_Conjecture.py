@@ -7,9 +7,9 @@
 #8/27/2025
 #16:47
 
-#End Date: 
-#
-#
+#End Date:  
+#9/5/2025
+#14:11
 
 #Collatz Conjecture
 #Problem:
@@ -52,26 +52,28 @@ n = int(input("Starting integer: "))
 #even = (n / 2)
 
 #9/2: Trying out a function; defining odd and even inside
+#9/5 better to define them globally (outside)
+def even(n): 
+    return(n / 2)
+
+def odd(n):
+    return((n * 3) + 1)
+
 def Cltz_Cnj(n):
-    def even(n):
-        n = n / 2
-    def odd(n):
-        n = ((n * 3) + 1)
-        print(n)
-    while n == float: 
-        if n == 1:
-            break
-        elif n < 1: 
+    cltz_sq = [n]
+    while n != 1: 
+        if n < 1: 
             print("Error. Please enter a positive integer.")
+            cltz_sq.clear()
+            break
         elif (n % 2) == 0:
-            print(even)
+            n = (even(n))
+            cltz_sq.append(n)
         else:
-            print(odd)
+            n = (odd(n))
+            cltz_sq.append(n)
+    print(cltz_sq)
 Cltz_Cnj(n)
-
-
-result = Cltz_Cnj(n)
-print(result)
 
 #def C_P():
  #   print("Congrats! You're all done with Collatz Conjecture for ", n, " :)")
